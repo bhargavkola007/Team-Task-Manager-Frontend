@@ -2,7 +2,9 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/api",
+ baseURL:
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://team-task-manager-backend-production.up.railway.app/api",
 });
 
 API.interceptors.request.use((config) => {
