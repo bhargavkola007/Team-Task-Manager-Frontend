@@ -1,0 +1,110 @@
+/* ============================================
+   DASHBOARD — Dashboard.css
+   ============================================ */
+
+/* ---- Stat Cards with color accents ---- */
+.dashboard-cards .card:nth-child(1) { --card-accent: var(--accent); }
+.dashboard-cards .card:nth-child(2) { --card-accent: var(--info); }
+.dashboard-cards .card:nth-child(3) { --card-accent: var(--warning); }
+.dashboard-cards .card:nth-child(4) { --card-accent: #a855f7; }
+.dashboard-cards .card:nth-child(5) { --card-accent: var(--success); }
+
+.dashboard-cards .card {
+  border-top: 2px solid var(--card-accent, var(--accent));
+  animation: cardReveal 0.4s var(--ease-slow) both;
+}
+
+.dashboard-cards .card:nth-child(1) { animation-delay: 0.05s; }
+.dashboard-cards .card:nth-child(2) { animation-delay: 0.1s; }
+.dashboard-cards .card:nth-child(3) { animation-delay: 0.15s; }
+.dashboard-cards .card:nth-child(4) { animation-delay: 0.2s; }
+.dashboard-cards .card:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card number value color */
+.dashboard-cards .card > p {
+  color: var(--card-accent, var(--accent));
+}
+
+/* ---- Welcome banner ---- */
+.dashboard-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-8);
+  margin-bottom: var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-welcome::before {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 200px;
+  height: 200px;
+  background: var(--accent-glow);
+  border-radius: var(--radius-full);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.dashboard-welcome h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.dashboard-welcome p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.dashboard-welcome-badge {
+  background: var(--accent-glow);
+  border: 1px solid rgba(99,102,241,0.3);
+  color: var(--accent-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---- Section label ---- */
+.dashboard-section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .dashboard-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-5);
+  }
+}

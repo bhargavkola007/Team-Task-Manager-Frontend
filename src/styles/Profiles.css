@@ -1,0 +1,107 @@
+/* ============================================
+   PROFILES — Profiles.css
+   ============================================ */
+
+.profile-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  max-width: 480px;
+  animation: fadeSlideUp 0.4s var(--ease-slow) both;
+}
+
+/* ---- Avatar section ---- */
+.profile-avatar-section {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: #fff;
+  box-shadow: 0 0 0 3px var(--bg-surface), 0 0 0 5px var(--accent-glow);
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+
+.profile-avatar-info h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.profile-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--accent-glow);
+  color: var(--accent-light);
+  border: 1px solid rgba(99,102,241,0.25);
+}
+
+.profile-role-badge.admin {
+  background: rgba(239,68,68,0.1);
+  color: #fca5a5;
+  border-color: rgba(239,68,68,0.25);
+}
+
+/* ---- Info rows ---- */
+.profile-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.profile-info-row:last-child {
+  border-bottom: none;
+}
+
+.profile-info-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.profile-info-value {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .profile-card {
+    padding: var(--space-5);
+  }
+
+  .profile-avatar {
+    width: 56px;
+    height: 56px;
+    font-size: 1.2rem;
+  }
+}

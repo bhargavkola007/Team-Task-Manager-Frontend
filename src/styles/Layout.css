@@ -1,0 +1,275 @@
+/* ============================================
+   LAYOUT — layout.css
+   Used by Dashboard, ProjectDetails, Profiles,
+   Tasks, Projects, TeamMembers, KanbanBoard
+   ============================================ */
+
+/* ---- App Shell ---- */
+.layout {
+  display: flex;
+  min-height: calc(100vh - var(--navbar-height));
+  margin-top: var(--navbar-height);
+  background: var(--bg-base);
+}
+
+/* ---- Main Content Area ---- */
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: var(--space-10) var(--space-10);
+  min-height: calc(100vh - var(--navbar-height));
+  background: var(--bg-base);
+  animation: fadeSlideUp 0.45s var(--ease-slow) both;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Page Title ---- */
+.main-content > h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  position: relative;
+  display: inline-block;
+}
+
+.main-content > h1::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+  margin-top: var(--space-2);
+  box-shadow: var(--shadow-accent);
+}
+
+.main-content > p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-8);
+}
+
+/* ---- Cards Grid ---- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-8);
+}
+
+/* ---- Stat / Info Card ---- */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: transform var(--ease-normal), box-shadow var(--ease-normal), border-color var(--ease-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent-glow), transparent 60%);
+  opacity: 0;
+  transition: opacity var(--ease-normal);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--border-default);
+  border-color: var(--border-strong);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card h3 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
+  font-family: var(--font-body);
+}
+
+.card > p,
+.card h2 + p {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+/* Info card variant (Profile, Project details) */
+.card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-1);
+}
+.card p strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-3);
+  color: var(--text-primary);
+}
+
+/* ---- Table Card ---- */
+.table-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-top: var(--space-8);
+  overflow: hidden;
+}
+
+.table-card h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-5);
+  color: var(--text-primary);
+}
+
+.table-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table-card thead tr {
+  border-bottom: 1px solid var(--border-default);
+}
+
+.table-card th {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table-card td {
+  padding: var(--space-4);
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+  transition: color var(--ease-fast);
+}
+
+.table-card tbody tr {
+  transition: background var(--ease-fast);
+}
+
+.table-card tbody tr:hover {
+  background: var(--bg-elevated);
+}
+
+.table-card tbody tr:hover td {
+  color: var(--text-primary);
+}
+
+.table-card tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Empty state */
+.table-card td[colspan] {
+  text-align: center;
+  color: var(--text-muted);
+  padding: var(--space-12);
+  font-style: italic;
+}
+
+/* Status select inside table */
+.table-card select {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: border-color var(--ease-fast), box-shadow var(--ease-fast);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: var(--space-6);
+}
+
+.table-card select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .main-content {
+    padding: var(--space-8) var(--space-6);
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .table-card {
+    overflow-x: auto;
+  }
+
+  .table-card table {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .main-content > h1 {
+    font-size: 1.5rem;
+  }
+}

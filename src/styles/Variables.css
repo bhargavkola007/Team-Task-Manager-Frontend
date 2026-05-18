@@ -1,0 +1,116 @@
+/* ============================================
+   GLOBAL CSS VARIABLES & RESETS
+   Import this in main.jsx / index.jsx ONLY
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+:root {
+  /* --- Color Palette --- */
+  --bg-base:        #0d0f14;
+  --bg-surface:     #13161e;
+  --bg-elevated:    #1a1e2a;
+  --bg-hover:       #1f2436;
+
+  --border-subtle:  rgba(255,255,255,0.06);
+  --border-default: rgba(255,255,255,0.10);
+  --border-strong:  rgba(255,255,255,0.18);
+
+  --accent:         #6366f1;
+  --accent-light:   #818cf8;
+  --accent-glow:    rgba(99,102,241,0.18);
+  --accent-hover:   #4f46e5;
+
+  --success:        #22c55e;
+  --warning:        #f59e0b;
+  --danger:         #ef4444;
+  --info:           #38bdf8;
+
+  --text-primary:   #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted:     #475569;
+  --text-accent:    #818cf8;
+
+  /* --- Typography --- */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* --- Spacing --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* --- Radii --- */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-full: 9999px;
+
+  /* --- Shadows --- */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.6);
+  --shadow-accent: 0 4px 24px rgba(99,102,241,0.25);
+
+  /* --- Transitions --- */
+  --ease-fast:   0.15s ease;
+  --ease-normal: 0.25s ease;
+  --ease-slow:   0.4s cubic-bezier(0.16,1,0.3,1);
+
+  /* --- Layout --- */
+  --sidebar-width: 240px;
+  --navbar-height: 60px;
+}
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: color var(--ease-fast);
+}
+a:hover { color: var(--accent-light); }
+
+button, input, select, textarea {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-surface); }
+::-webkit-scrollbar-thumb { background: var(--bg-hover); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }

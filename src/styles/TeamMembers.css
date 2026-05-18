@@ -1,0 +1,87 @@
+/* ============================================
+   TEAM MEMBERS — TeamMembers.css
+   ============================================ */
+
+/* Role badge */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: var(--radius-full);
+}
+
+.role-badge.ADMIN {
+  background: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.role-badge.MEMBER {
+  background: var(--accent-glow);
+  color: var(--accent-light);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+/* Member avatar in table */
+.member-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.member-avatar-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: var(--font-display);
+  flex-shrink: 0;
+}
+
+.member-name {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+/* ID cell */
+.id-cell {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Delete button (reuse from Tasks.css or inline here for independence) */
+.btn-delete {
+  padding: var(--space-1) var(--space-3);
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--ease-fast);
+  white-space: nowrap;
+}
+
+.btn-delete:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #fecaca;
+}

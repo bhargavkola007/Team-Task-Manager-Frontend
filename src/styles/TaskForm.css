@@ -1,0 +1,54 @@
+/* ============================================
+   TASK FORM — TaskForm.css
+   ============================================ */
+
+/* TaskForm reuses .form-card from ProjectForm.css.
+   These are TaskForm-specific extras. */
+
+/* Two-column grid for some fields */
+.form-card.task-form {
+  max-width: 680px;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.form-grid-2 > * {
+  margin-bottom: 0 !important;
+}
+
+/* Date input */
+.form-card input[type="date"] {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color var(--ease-fast), box-shadow var(--ease-fast);
+  margin-bottom: var(--space-4);
+  color-scheme: dark;
+}
+
+.form-card input[type="date"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  background: var(--bg-hover);
+}
+
+/* Collapse spacing on the grid row */
+.form-card .form-row {
+  display: contents;
+}
+
+@media (max-width: 560px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
